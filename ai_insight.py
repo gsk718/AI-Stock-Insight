@@ -28,19 +28,18 @@ def build_prompt(ticker, df, signal, score):
         trend = "Insufficient data"
 
     return (
-        f"You are a financial analyst. Analyze the following data for {ticker} "
-        f"and respond in 3-5 concise sentences.\n\n"
+        f"You are a financial analyst. Analyze the following data for {ticker}.\n\n"
         f"Ticker: {ticker}\n"
         f"Signal: {signal}\n"
         f"Score: {score} (scale: -5 to +4, higher is more bullish)\n"
         f"Trend: {trend}\n"
         f"RSI: {rsi}\n"
         f"Last 10 closing prices: {last_10_prices}\n\n"
-        f"Cover these points:\n"
+        f"Respond as a numbered list with exactly 3 points, one per line, no extra blank lines:\n"
         f"1. Explain the current trend based on the moving averages and prices.\n"
         f"2. Explain why the score is high or low.\n"
         f"3. Assess the risk level.\n"
-        f"Be concise — no more than 5 sentences total."
+        f"Each point should be one concise sentence."
     )
 
 

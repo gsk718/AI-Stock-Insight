@@ -27,3 +27,5 @@ date,ticker,score,signal
 2026-04-29,NVDA,1,Buy
 2026-04-29,AAPL,0,Neutral
 2026-04-29,MSFT,-1,Sell
+2026-04-29,AAPL,0,Neutral
+2026-04-29,AMZN,-1,Sell

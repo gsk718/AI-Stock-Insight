@@ -61,24 +61,28 @@ def plot_stock_with_insight(df, ticker, insight):
     # --- Row 2: AI insight table (spans both columns) ---
     insight_lines = [line.strip() for line in insight.split('\n') if line.strip()]
     fig.add_trace(go.Table(
-        header=dict(values=[f"AI Insight for {ticker}"], fill_color='lightgrey',
-                    font=dict(size=13), align='left'),
-        cells=dict(values=[insight_lines], font=dict(size=12), align='left',
-                   height=28)
+        header=dict(values=[f"AI Insight for {ticker}"], fill_color='#1a1a1a',
+                    font=dict(size=13, color='white'), align='left'),
+        cells=dict(values=[insight_lines], font=dict(size=12, color='#dddddd'),
+                   fill_color='#0d0d0d', align='left', height=28)
     ), row=2, col=1)
 
     fig.update_layout(
         height=850,
-        title=dict(text=f"{ticker} — Price, RSI & AI Insight", font=dict(size=16)),
+        title=dict(text=f"{ticker} — Price, RSI & AI Insight", font=dict(size=16, color='white')),
         xaxis_title="Date",
         yaxis_title="Price (USD)",
         xaxis2_title="Date",
         yaxis2_title="RSI",
         showlegend=True,
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
-        plot_bgcolor='white',
-        paper_bgcolor='white',
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1,
+                    font=dict(color='white'), bgcolor='rgba(0,0,0,0)'),
+        plot_bgcolor='black',
+        paper_bgcolor='black',
+        font=dict(color='white'),
     )
-    fig.update_xaxes(showgrid=True, gridcolor='#e8e8e8', linecolor='#cccccc', zeroline=False)
-    fig.update_yaxes(showgrid=True, gridcolor='#e8e8e8', linecolor='#cccccc', zeroline=False)
+    fig.update_xaxes(showgrid=True, gridcolor='#333333', linecolor='#555555', zeroline=False,
+                     tickfont=dict(color='white'), title_font=dict(color='white'))
+    fig.update_yaxes(showgrid=True, gridcolor='#333333', linecolor='#555555', zeroline=False,
+                     tickfont=dict(color='white'), title_font=dict(color='white'))
     fig.show()
